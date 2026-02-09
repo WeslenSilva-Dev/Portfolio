@@ -191,34 +191,36 @@ body {
     font-weight: bold;
 }
 
-.info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-}
-
-.info-item {
+.about-block {
     background: var(--bg-tertiary);
-    padding: 1rem;
-    border-left: 3px solid var(--terminal-green);
+    padding: 1.5rem;
+    border-left: 4px solid var(--terminal-green);
     border-radius: 4px;
     transition: all 0.3s ease;
 }
 
-.info-item:hover {
-    transform: translateX(10px);
+.about-block:hover {
     border-left-color: var(--terminal-cyan);
     box-shadow: 0 0 20px var(--accent-glow);
 }
 
-.info-key {
-    color: var(--terminal-yellow);
-    font-weight: 600;
+.about-text {
+    color: var(--text-primary);
+    line-height: 1.8;
+    margin: 0;
+    text-align: left;
 }
 
-.info-value {
-    color: var(--text-primary);
+.about-text .about-link {
+    color: var(--terminal-cyan);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.about-text .about-link:hover {
+    color: var(--terminal-green);
+    border-bottom-color: var(--terminal-green);
 }
 
 .project-card {
@@ -386,6 +388,14 @@ body {
     margin-top: 2rem;
     border: 1px solid var(--terminal-green);
     font-size: 0.9rem;
+    overflow-x: auto;
+    word-wrap: break-word;
+}
+
+.command-line .prompt {
+    word-break: break-all;
+    overflow-wrap: anywhere;
+    white-space: normal;
 }
 
 .command-line code {
@@ -402,9 +412,12 @@ body {
 
 .social-links {
     display: flex;
-    gap: 1.5rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
     justify-content: center;
+    align-items: center;
     margin-top: 1rem;
+    padding: 0 0.5rem;
 }
 
 .social-links a {
@@ -430,18 +443,133 @@ body {
     margin: 2rem 0;
     text-align: center;
     opacity: 0.6;
+    overflow-x: auto;
+    max-width: 100%;
 }
 
+.ascii-art pre {
+    overflow-x: auto;
+    max-width: 100%;
+    white-space: pre;
+    margin: 0;
+}
+
+/* Tablet e telas médias */
 @media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .terminal-body {
+        padding: 1.25rem;
+    }
+
+    .terminal-title {
+        font-size: 0.75rem;
+        margin-left: 0.5rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 60vw;
+    }
+
+    .hero {
+        margin-bottom: 2rem;
+    }
+
     .hero h1 {
         font-size: 2rem;
+        word-wrap: break-word;
     }
-    
-    .info-grid {
-        grid-template-columns: 1fr;
+
+    .typing-effect {
+        white-space: normal;
+        overflow: visible;
+        border-right: none;
+        animation: none;
+        display: block;
+        max-width: 100%;
     }
-    
+
+    .section-title {
+        font-size: 1.25rem;
+    }
+
+    .about-block {
+        padding: 1rem;
+    }
+
+    .about-text {
+        font-size: 0.95rem;
+    }
+
+    .project-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .project-title {
+        font-size: 1.1rem;
+        word-wrap: break-word;
+        min-width: 0;
+    }
+
+    .project-status {
+        align-self: flex-start;
+    }
+
     .skills-container {
         grid-template-columns: 1fr;
+    }
+
+    .ascii-art {
+        font-size: 0.55rem;
+        margin: 1.5rem 0;
+    }
+
+    .command-line {
+        padding: 0.75rem;
+        font-size: 0.8rem;
+    }
+
+    .footer {
+        padding: 1.5rem 0.5rem;
+    }
+
+    .social-links {
+        gap: 0.5rem;
+    }
+
+    .social-links a {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+    .container {
+        padding: 0.75rem;
+    }
+
+    .terminal-body {
+        padding: 1rem;
+    }
+
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+
+    .section-title {
+        font-size: 1.1rem;
+    }
+
+    .project-title {
+        font-size: 1rem;
+    }
+
+    .ascii-art {
+        font-size: 0.5rem;
     }
 }
